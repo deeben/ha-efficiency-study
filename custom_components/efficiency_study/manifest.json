@@ -1,0 +1,11 @@
+{
+  "domain": "efficiency_study",
+  "name": "Home Efficiency Study",
+  "codeowners": ["@deeben"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/deeben/efficiency_study",
+  "iot_class": "cloud_push",
+  "requirements": [],
+  "version": "1.0.0"
+}

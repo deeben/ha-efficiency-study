@@ -1,0 +1,36 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure InfluxDB Credentials",
+        "description": "Please enter your InfluxDB Cloud credentials and House ID.",
+        "data": {
+          "influx_url": "InfluxDB Cloud URL (e.g., https://us-east-1-1.aws.cloud2.influxdata.com)",
+          "influx_token": "API Token",
+          "influx_org": "Organization",
+          "influx_bucket": "Bucket",
+          "house_id": "House ID"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "Device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Select Sensors to Share",
+        "description": "Choose the sensors to upload their state values to the home efficiency study.",
+        "data": {
+          "monitored_entities": "Monitored Entities"
+        }
+      }
+    }
+  }
+}
