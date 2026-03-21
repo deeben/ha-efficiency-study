@@ -1,6 +1,8 @@
 # Home Efficiency Study Integration
 
-A custom integration for Home Assistant that allows you to report specific sensor state changes to an InfluxDB Cloud bucket, tagged with a unique House ID.
+A custom integration for Home Assistant that allows you to report specific sensor state changes to an InfluxDB Cloud bucket, tagged with a unique House ID. This was created to allow Passivhaus proponents in Australia to compile long term performance data from multiple homes using Home Assistant to unify different sensor ecosystems in a single platform. 
+
+The plugin itself isn't using hard coded strings for the Influx DB so anyone can re-use this for creating and sharing their own time based sensor data in a secure way.
 
 ## Features
 
