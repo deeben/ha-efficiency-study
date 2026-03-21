@@ -44,6 +44,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             
         entity_id = new_state.entity_id
         state = new_state.state
+        unit = new_state.attributes.get("unit_of_measurement")
         
         if state in ("unknown", "unavailable"):
             return
@@ -59,8 +60,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             
         safe_house_id = str(house_id).replace(" ", "\\ ").replace(",", "\\,").replace("=", "\\=")
         
+        tags = f"entity_id={entity_id},house_id={safe_house_id}"
+        if unit:
+            safe_unit = str(unit).replace(" ", "\\ ").replace(",", "\\,").replace("=", "\\=")
+            tags += f",unit_of_measurement={safe_unit}"
+        
         # InfluxDB Line Protocol: measurement,tags fields timestamp
-        payload = f"efficiency_study,entity_id={entity_id},house_id={safe_house_id} value={val_str}"
+        payload = f"efficiency_study,{tags} value={val_str}"
         
         _LOGGER.debug("Efficiency Study uploading state change for %s: %s", entity_id, payload)
         
